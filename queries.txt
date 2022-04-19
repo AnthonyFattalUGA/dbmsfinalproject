@@ -1,0 +1,27 @@
+INSERT INTO `products` (`pid`, `pname`, `stock`, `price`, `category`, `sid`, `color`, `psize`) VALUES (NULL, 'sketchers', '69', '187.4', 'shoe', '1', 'blue', 'size 11'); 
+
+
+INSERT INTO `suppliers` (`sid`, `sname`) VALUES (NULL, 'sktechers'); 
+
+products.php snippet
+$sql1 = "SELECT * FROM `categories`";
+$result = mysqli_query($conn,$sql1);
+$row = mysqli_fetch_assoc($result);
+if (!empty($row)) {
+    do {
+        $show1 .= '
+        <option value="'.$row['categoryID'].'">'.$row['categoryName'].'</option>';
+    } while ($row = mysqli_fetch_assoc($result));
+}
+
+
+other products.php snippet from dtinc
+$sql1 = "SELECT category FROM `products` GROUP BY category"; //grab categories
+$result = mysqli_query($conn,$sql1);
+$row = mysqli_fetch_assoc($result);
+if (!empty($row)) {
+    do {
+        $show .= '
+        <option value="'.$row['category'].'">'.$row['category'].'</option>';
+    } while ($row = mysqli_fetch_assoc($result));
+}
