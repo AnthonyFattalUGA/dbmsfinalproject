@@ -26,14 +26,28 @@ if (!empty($row)) { //query categories
 
 
 
+$supplier_id = '';
+
 if (isset($_REQUEST["category"])) {//$tango != "") { //query for products in specified category
     $cat_id = $_REQUEST["category"];
     $sql2 = "SELECT *, suppliers.sname FROM `products` inner join suppliers where `category` = '$cat_id' and products.sid=suppliers.sid;"; 
     $sql3 = "SELECT category FROM `products` WHERE `category` = '$cat_id'";
+    if (isset($_REQUEST["supplier"])) {
+        $supplier_id = $_REQUEST["supplier"];
+        $sql2 = "SELECT *, suppliers.sname FROM `products` inner join suppliers where `category` = '$cat_id' and `sname` = '$supplier_id' and products.sid=suppliers.sid;"; 
+        $sql3 = "SELECT category FROM `products` WHERE `category` = '$cat_id'";
+    }
     $result3 = mysqli_query($conn,$sql3);
     $row3 = mysqli_fetch_assoc($result3);
     $title = $row3['category'];
-} else{
+} else if (isset($_REQUEST["supplier"])) {
+    $supplier_id = $_REQUEST["supplier"];
+    $sql2 = "SELECT *, suppliers.sname FROM `products` inner join suppliers where `sname` = '$supplier_id' and products.sid=suppliers.sid;"; 
+    $sql3 = "SELECT category FROM `products`;";
+    $result3 = mysqli_query($conn,$sql3);
+    $row3 = mysqli_fetch_assoc($result3);
+    $title = $row3['category'];
+} else {
     $sql2 = "SELECT *, suppliers.sname FROM `products` inner join suppliers where products.sid=suppliers.sid; ";
     $title = "All Products";
 }
@@ -62,9 +76,32 @@ $catddquery="SELECT category FROM `products` GROUP BY category";
 $categorylistdd=mysqli_query($conn,$catddquery);
 $ddcat = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
 
+$supplierddquery="SELECT suppliers.sname FROM `products` inner join suppliers where products.sid=suppliers.sid group by suppliers.sname;";
+$supplierlistdd=mysqli_query($conn,$supplierddquery);
+$ddsupplier = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
+
 if (isset($_POST['categorydd'])) {
-    header('Location:index.php?category='.$_REQUEST['categorydd']);
+    if ($_POST['categorydd'] == "none"){
+        if (isset($_POST['supplierdd'])  && $_POST['supplierdd']!= "none") {
+            header('Location:index.php?supplier='.$_REQUEST['supplierdd']);
+        }else{
+        header('Location:index.php');
+        }
+    }
+    else if (isset($_POST['supplierdd'])  && $_POST['supplierdd']!= "none") {
+        header('Location:index.php?category='.$_REQUEST['categorydd'].'&supplier='.$_REQUEST['supplierdd']);
+    } else {
+        header('Location:index.php?category='.$_REQUEST['categorydd']);
+    }
+} else if (isset($_POST['supplierdd'])  && $_POST['supplierdd']!= "none") {
+    if ($_POST['supplierdd'] == "none") {
+        header('Location:index.php');
+    } else {
+        header('Location:index.php?supplier='.$_REQUEST['supplierdd']);
+    }
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -92,14 +129,23 @@ if (isset($_POST['categorydd'])) {
             <aside class="left">
                 <h3 class="title"><a href="index.php">Product Home</a></h3>
                 <ul class="nav">
-                    <?php echo $show1; ?>
+                    <?php //echo $show1; ?>
                 </ul>
             </aside>
         <form method="post">
             <aside class="left">
                 <select name="categorydd" id="czsfgdrgategorydd">
+                <option value="none">all</option>
                     <?php foreach ($categorylistdd as $currentcategory):?>
                         <option value="<?php echo $currentcategory['category']?>"><?php echo $currentcategory['category']?></option>
+                    <?php endforeach; ?>
+                </select>
+            </aside>
+            <aside class="left">
+                <select name="supplierdd" id="suppliersedjgnwegdd">
+                    <option value="none">all</option>
+                    <?php foreach ($supplierlistdd as $currentsupplier):?>
+                        <option value="<?php echo $currentsupplier['sname']?>"><?php echo $currentsupplier['sname']?></option>
                     <?php endforeach; ?>
                 </select>
                 <input id="submit" name="submit" type="submit" value="Search">
@@ -128,7 +174,7 @@ if (isset($_POST['categorydd'])) {
         </div>
     </main>
     <footer>
-        <p>&copy; 2022 My Guitar Shop, Inc</p>
+        <p>&copy; 2022 Dank Threads, Inc</p>
     </footer>
 </body>
 
