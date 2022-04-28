@@ -1,0 +1,21 @@
+pages so far:
+add product
+product home
+edit product
+
+pages needed:
+customer view
+add customer
+update customer info
+employee view
+add employee
+update employee info
+add order
+order view
+
+CSS:
+brand new style.css
+
+SQL needed:
+trigger for insert into order, subtract quantity from stock
+
