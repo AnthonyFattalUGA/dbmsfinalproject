@@ -80,7 +80,7 @@ $ddsupplier = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
 // fix for this page --------------
 
 if (isset($_REQUEST['edit'])) { //add product query
-    if (isset($_REQUEST['stock'])) {
+    if (isset($_REQUEST['stock']) ) {
         $newstock = $_REQUEST['stock'];
 
         $sql7 = "UPDATE `products` SET `stock` = '$newstock' WHERE `products`.`pid` = $pid; ";
@@ -154,8 +154,8 @@ if (isset($_REQUEST['edit'])) { //add product query
                             <td>New</td>
                             <td><?php echo $pid; ?></td>
                             <td><?php echo $pname; ?></td>
-                            <td><input type="number" min="0" step="1" name="stock"></td>
-                            <td><input type="number" min="0" step="0.01" name="price"></td>
+                            <td><input type="number" value="<?php echo $stock; ?>" min="0" step="1" name="stock"></td>
+                            <td><input type="number" value="<?php echo $price; ?>" min="0" step="0.01" name="price"></td>
                             <td><?php echo $category; ?></td>
                             <td><?php echo $sname; ?></td>
                             <td><?php echo $color; ?></td>
