@@ -26,7 +26,7 @@ if (!empty($row)) { //query categories
 
 
 
-
+$sql2='';
 if (isset($_REQUEST["edit_pid"])) {//$tango != "") { //query for products in specified category
     $editpid = $_REQUEST["edit_pid"];
     $sql2 = "SELECT *, suppliers.sname FROM `products` inner join suppliers where `pid` = '$editpid' and products.sid=suppliers.sid;"; 
@@ -77,7 +77,28 @@ $supplierddquery="SELECT suppliers.sname FROM `products` inner join suppliers wh
 $supplierlistdd=mysqli_query($conn,$supplierddquery);
 $ddsupplier = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
 
+// fix for this page --------------
 
+if (isset($_REQUEST['edit'])) { //add product query
+    if (isset($_REQUEST['stock'])) {
+        $newstock = $_REQUEST['stock'];
+
+        $sql7 = "UPDATE `products` SET `stock` = '$newstock' WHERE `products`.`pid` = $pid; ";
+        $result2 = mysqli_query($conn,$sql7);
+
+        $info = "Product Updated";
+    }
+    if (isset($_REQUEST['price'])) {
+        $newprice = $_REQUEST['price'];
+
+        $sql7 = "UPDATE `products` SET `price` = '$newprice' WHERE `products`.`pid` = $pid; ";
+        $result2 = mysqli_query($conn,$sql7);
+
+        $info = "Product Updated";
+    }
+    header('Location:editproduct.php?edit_pid='.$pid);
+}
+//-------------------------------------
 
 ?>
 <!DOCTYPE html>
@@ -128,7 +149,7 @@ $ddsupplier = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
                         <th>Size</th> 
                     </tr>
                     <?php echo $show2; ?>
-                    <form action="editproduct.php" method="post">
+                    <form method="post">
                         <tr>
                             <td>New</td>
                             <td><?php echo $pid; ?></td>
