@@ -4,7 +4,7 @@ product home
 edit product
 
 PAGES NEEDED:
-Home page
+Home page (index.php)
 -- link to all other view pages, every other page must link to their respective view page (eg edit customer links back to customer view
                                                                                             and customer view links back to home)
 
