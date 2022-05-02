@@ -3,18 +3,41 @@ add product
 product home
 edit product
 
-pages needed:
+PAGES NEEDED:
+
 customer view
+-- view all customers & info
+-- button or link to edit page for each customer in a table
+-- button or link to add customer page
+
 add customer
+
 update customer info
+-- this is edit page
+-- copy from style from editproduct, allow for only relevant info to be changed
+-- -- email, zip, phone
+
 employee view
+-- view all employees and info
+-- button or link to edit page for every employee
+-- button or link to add employee
+
 add employee
+
 update employee info
+-- update only relevant information (phone number, email
+
 add order
+-- needs to insert into order table
+-- possibly will need a page for selecting an employee that places the order and customer that orders it
+
 order view
+-- views all relevant information for all orders, in order of most to least recent
+-- maybe a delete button 
 
 CSS:
 brand new style.css
+-- needs to look VERY different from what it is now. framework was taken from old assignment
 
 SQL needed:
 trigger for insert into order, subtract quantity from stock
