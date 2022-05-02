@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2022 at 01:48 AM
+-- Generation Time: May 02, 2022 at 08:01 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -44,7 +44,8 @@ CREATE TABLE `customers` (
 CREATE TABLE `employees` (
   `eid` int(11) NOT NULL,
   `ename` varchar(255) NOT NULL,
-  `phone_number` varchar(50) NOT NULL
+  `phone_number` varchar(50) NOT NULL,
+  `email` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -84,8 +85,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`pid`, `pname`, `stock`, `price`, `category`, `sid`, `color`, `psize`) VALUES
-(1, 'sketchers', 69, '187.40', 'shoe', 1, 'blue', 'size 11'),
-(5, '2015 adidas yeezy boost 350', 11, '200.00', 'shoe', 3, 'pirate black', '13'),
+(1, 'sketchers', 70, '187.40', 'shoe', 1, 'blue', 'size 11'),
+(5, '2015 adidas yeezy boost 350', 11, '550.00', 'shoe', 3, 'pirate black', '13'),
 (6, 'tshirt', 11, '12.00', 'shirt', 4, 'blue', 'L');
 
 -- --------------------------------------------------------
