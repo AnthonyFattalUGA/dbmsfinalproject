@@ -33,7 +33,7 @@ if (isset($_REQUEST["edit_pid"])) {//$tango != "") { //query for products in spe
     $result3 = mysqli_query($conn,$sql2);
     $row3 = mysqli_fetch_assoc($result3);
 }
-$pname = '';
+$pname = ''; //init variables for later usage
 $pid = 0;
 $pname = '';
 $stock = 0;
@@ -44,7 +44,7 @@ $color = '';
 $psize = '';
 $result1 = mysqli_query($conn,$sql2);
 $row1 = mysqli_fetch_assoc($result1);
-if (!empty($row1)) {
+if (!empty($row1)) {// will list original values
     $pid = $row1['pid'];
     $pname = $row1['pname'];
     $stock = $row1['stock'];
@@ -68,14 +68,6 @@ if (!empty($row1)) {
             </tr>';
     } while ($row1 = mysqli_fetch_assoc($result1));
 }
-
-$catddquery="SELECT category FROM `products` GROUP BY category";
-$categorylistdd=mysqli_query($conn,$catddquery);
-$ddcat = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
-
-$supplierddquery="SELECT suppliers.sname FROM `products` inner join suppliers where products.sid=suppliers.sid group by suppliers.sname;";
-$supplierlistdd=mysqli_query($conn,$supplierddquery);
-$ddsupplier = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
 
 // fix for this page --------------
 
@@ -109,7 +101,7 @@ if (isset($_REQUEST['edit'])) { //add product query
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Manager</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dtstyle.css">
 </head>
 
 <body>

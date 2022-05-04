@@ -1,6 +1,6 @@
 <?php
 
-$sql5 = "SELECT * FROM `employees` where eid=".$_REQUEST["eid"].";";
+$sql5 = "SELECT * FROM `employees` where eid=".$_REQUEST["eid"].";"; // grabs table for employee selected
 
 $result5 = mysqli_query($conn,$sql5);
 $row5 = mysqli_fetch_assoc($result5);
