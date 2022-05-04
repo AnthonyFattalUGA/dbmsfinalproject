@@ -1,6 +1,6 @@
 <?php
 
-$sql4 = "SELECT * FROM `customers` where cid=".$_REQUEST["cid"].";";
+$sql4 = "SELECT * FROM `customers` where cid=".$_REQUEST["cid"].";"; //make table with all customers and info
 
 $result4 = mysqli_query($conn,$sql4);
 $row4 = mysqli_fetch_assoc($result4);

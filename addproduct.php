@@ -18,7 +18,7 @@ if (isset($_REQUEST['add'])) { //add product query
         $sqlfetch = mysqli_fetch_row($result2);
         $sid = $sqlfetch[0];
     } else {
-        $sql6 = "INSERT INTO `suppliers` (`sname`) VALUES ('$sname');";
+        $sql6 = "INSERT INTO `suppliers` (`sname`) VALUES ('$sname');"; //adds supplier to list in case it does not exist
         mysqli_query($conn,$sql6);
         //$sql5 = "SELECT * FROM `suppliers` WHERE `sname` = '$sname'";
         $result2 = mysqli_query($conn,$sql5);
@@ -29,8 +29,8 @@ if (isset($_REQUEST['add'])) { //add product query
     $sql2 = "SELECT * FROM `products` WHERE `pid` = 0";
     $result = mysqli_query($conn,$sql2);
     if (mysqli_num_rows($result)) {
-        $info = "Product Already Exists!";
-    }else{
+        $info = "Product Already Exists!"; // case product exists already
+    }else{ //adds product
         $sql = "INSERT INTO `products` (`pname`,`stock`,`price`,`category`,`sid`,`color`,`psize`) VALUES ('$pname','$stock','$price','$category','$sid','$color','$psize')";
         $check = mysqli_query($conn,$sql);
         if ($check) {
@@ -61,7 +61,7 @@ if (!empty($row)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Manager</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dtstyle.css">
 </head>
 
 <body>
