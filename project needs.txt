@@ -2,6 +2,8 @@ pages so far:
 add product
 product home
 edit product
+add order (orderchooseemployee, orderchoosecustomer, orderchooseproduct, placeorder)
+-- send homepage to orderchooseemployee for add order link
 
 PAGES NEEDED:
 Home page (index.php)
@@ -31,9 +33,6 @@ add employee
 update employee info
 -- update only relevant information (phone number, email
 
-add order
--- needs to insert into order table
--- possibly will need a page for selecting an employee that places the order and customer that orders it
 
 order view
 -- views all relevant information for all orders, in order of most to least recent
