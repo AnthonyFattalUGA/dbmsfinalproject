@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2022 at 08:01 PM
+-- Generation Time: May 05, 2022 at 07:44 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -35,6 +35,13 @@ CREATE TABLE `customers` (
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`cid`, `cname`, `zip`, `phone_number`, `email`) VALUES
+(1, 'GUEST', 0, '(555)-555-5555', 'NONE@NOMAIL.com');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +54,13 @@ CREATE TABLE `employees` (
   `phone_number` varchar(50) NOT NULL,
   `email` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`eid`, `ename`, `phone_number`, `email`) VALUES
+(1, 'Anthony Fattal', '4043843999', 'fattalanthony@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -62,6 +76,17 @@ CREATE TABLE `orders` (
   `eid` int(11) NOT NULL,
   `count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`oid`, `odate`, `pid`, `cid`, `eid`, `count`) VALUES
+(1, '2022-05-03', 1, 1, 1, 1),
+(2, '2022-05-04', 6, 1, 1, 11),
+(5, '2022-05-04', 6, 1, 1, 1),
+(7, '2022-05-04', 1, 1, 1, 70),
+(10, '2022-05-04', 5, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -152,19 +177,19 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `products`
