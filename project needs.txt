@@ -39,7 +39,7 @@ order view
 -- maybe a delete button 
 
 CSS:
-brand new style.css
+brand new dtstyle.css
 -- needs to look VERY different from what it is now. framework was taken from old assignment
 
 SQL needed:
