@@ -3,7 +3,7 @@ add product
 product home
 edit product
 add order (orderchooseemployee, orderchoosecustomer, orderchooseproduct, placeorder)
--- send homepage to orderchooseemployee for add order link
+-- send homepage/orderview page to orderchooseemployee for add order link
 
 PAGES NEEDED:
 Home page (index.php)
