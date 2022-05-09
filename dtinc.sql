@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2022 at 07:44 PM
+-- Generation Time: May 09, 2022 at 04:50 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -86,7 +86,17 @@ INSERT INTO `orders` (`oid`, `odate`, `pid`, `cid`, `eid`, `count`) VALUES
 (2, '2022-05-04', 6, 1, 1, 11),
 (5, '2022-05-04', 6, 1, 1, 1),
 (7, '2022-05-04', 1, 1, 1, 70),
-(10, '2022-05-04', 5, 1, 1, 1);
+(10, '2022-05-04', 5, 1, 1, 1),
+(21, '2022-05-09', 5, 1, 1, 1),
+(22, '2022-05-09', 5, 1, 1, 1);
+
+--
+-- Triggers `orders`
+--
+DELIMITER $$
+CREATE TRIGGER `stockcalculator` AFTER INSERT ON `orders` FOR EACH ROW update products set stock = stock - (select count from orders order by oid desc limit 1) where pid = (select pid from orders order by oid desc limit 1)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -111,7 +121,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`pid`, `pname`, `stock`, `price`, `category`, `sid`, `color`, `psize`) VALUES
 (1, 'sketchers', 70, '187.40', 'shoe', 1, 'blue', 'size 11'),
-(5, '2015 adidas yeezy boost 350', 11, '550.00', 'shoe', 3, 'pirate black', '13'),
+(5, '2015 adidas yeezy boost 350', 9, '550.00', 'shoe', 3, 'pirate black', '13'),
 (6, 'tshirt', 11, '12.00', 'shirt', 4, 'blue', 'L');
 
 -- --------------------------------------------------------
@@ -189,7 +199,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `products`
