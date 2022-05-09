@@ -1,7 +1,7 @@
 <?php 
 include('db_conn.php');
 $info = $show2 = $show1 = '';
-if (isset($_REQUEST['dtl_id'])) { // for delete function 
+if (isset($_REQUEST['dlt_id'])) { // for delete function 
     $dlt_id = $_REQUEST[`dlt_id`];
     $sql = "DELETE FROM `orders` WHERE `oid` = '$dlt_id'";
     $check = mysqli_query($conn,$sql);
@@ -27,7 +27,6 @@ if(!empty($row1)) {
             <td>'.$row1['cid'].'</td>
             <td>'.$row1['eid'].'</td> 
             <td>'.$row1['count'].'</td>
-            <td><button onclick="location.href=\'editorder.php?edit_oid='.$row1['oid'].'\';">edit</button></td>
             <td><button onclick="location.href=\'orderview.php?dlt_id='.$row1['oid'].'\';">Delete</button></td> 
         </tr>';
     } 
@@ -80,7 +79,6 @@ if(!empty($row1)) {
                     <th>Customer id</th>
                     <th>Employee id</th>
                     <th>Count</th>
-                    <th></th>
                     <th></th>
                 </tr>
                 <?php echo $show2; ?>
