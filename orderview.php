@@ -14,11 +14,15 @@ if (isset($_REQUEST['dlt_id'])) { // for delete function
     }
 }
 
-$sql2 = "SELECT * FROM `orders`";
+$sql2 = "select orders.*, customers.cname, employees.ename, products.pname, products.price from orders
+left outer join customers on orders.cid = customers.cid
+left outer JOIN employees on orders.eid = employees.eid
+left outer JOIN products on products.pid = orders.pid;";
 $result1 = mysqli_query($conn,$sql2);
 $row1 = mysqli_fetch_assoc($result1);
 if(!empty($row1)) {
     do {
+        $total = $row1['count'] * $row1['price'];
         $show2 .= '
         <tr>
             <td>'.$row1['oid'].'</td>
@@ -27,6 +31,10 @@ if(!empty($row1)) {
             <td>'.$row1['cid'].'</td>
             <td>'.$row1['eid'].'</td> 
             <td>'.$row1['count'].'</td>
+            <td>'.$row1['pname'].'</td>
+            <td>'.$row1['cname'].'</td>
+            <td>'.$row1['ename'].'</td> 
+            <td>'.$total.'</td>
             <td><button onclick="location.href=\'orderview.php?dlt_id='.$row1['oid'].'\';">Delete</button></td> 
         </tr>';
     } 
@@ -79,6 +87,10 @@ if(!empty($row1)) {
                     <th>Customer id</th>
                     <th>Employee id</th>
                     <th>Count</th>
+                    <th>Product</th>
+                    <th>Customer</th>
+                    <th>Employee</th>
+                    <th>Total</th>
                     <th></th>
                 </tr>
                 <?php echo $show2; ?>
