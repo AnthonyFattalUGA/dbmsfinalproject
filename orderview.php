@@ -2,7 +2,7 @@
 include('db_conn.php');
 $info = $show2 = $show1 = '';
 if (isset($_REQUEST['dlt_id'])) { // for delete function 
-    $dlt_id = $_REQUEST[`dlt_id`];
+    $dlt_id = $_REQUEST['dlt_id'];
     $sql = "DELETE FROM `orders` WHERE `oid` = '$dlt_id'";
     $check = mysqli_query($conn,$sql);
     if ($check) {
