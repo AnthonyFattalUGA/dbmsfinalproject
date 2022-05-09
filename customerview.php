@@ -13,7 +13,7 @@ if (isset($_REQUEST['dlt_id'])) { //delete action
     }
 }
 
-$sql2 = "SELECT * FROM 'customers'";
+$sql2 = "SELECT * FROM `customers`";
 $result1 = mysqli_query($conn,$sql2);
 $row1 = mysqli_fetch_assoc($result1);
 if (!empty($row1)) {
@@ -41,7 +41,7 @@ if (!empty($row1)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Manager</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dtstyle.css">
 </head>
 
 <body>
