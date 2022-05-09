@@ -13,11 +13,19 @@ if (isset($_REQUEST['dlt_id'])) { //delete action
     }
 }
 
+$sql2='';
+if (isset($_REQUEST["edit_cid"])) {//$tango != "") { //query for products in specified category
+    $editcid = $_REQUEST["edit_cid"];
+    $sql2 = "SELECT * FROM `customers` WHERE `cid` = '$editcid'"; 
+    $result3 = mysqli_query($conn,$sql2);
+    $row3 = mysqli_fetch_assoc($result3);
+}
+
 $cid = 0;
 $cname = ''; 
 $zip = 0;
 $phone_number = '';
-$pemail = '';
+$email = '';
 $result1 = mysqli_query($conn,$sql2);
 $row1 = mysqli_fetch_assoc($result1);
 if (!empty($row1)) { //original values
