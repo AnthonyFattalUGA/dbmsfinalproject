@@ -4,19 +4,18 @@ product home
 edit product
 add order (orderchooseemployee, orderchoosecustomer, orderchooseproduct, placeorder)
 -- send homepage/orderview page to orderchooseemployee for add order link
+add customer
+add employee
+trigger for insert into order, subtract quantity from stock
 
 PAGES NEEDED:
 Home page (index.php)
 -- link to all other view pages, every other page must link to their respective view page (eg edit customer links back to customer view
                                                                                             and customer view links back to home)
-
-
 customer view
 -- view all customers & info
 -- button or link to edit page for each customer in a table
 -- button or link to add customer page
-
-add customer
 
 update customer info
 -- this is edit page
@@ -28,11 +27,8 @@ employee view
 -- button or link to edit page for every employee
 -- button or link to add employee
 
-add employee
-
 update employee info
 -- update only relevant information (phone number, email
-
 
 order view
 -- views all relevant information for all orders, in order of most to least recent
@@ -42,6 +38,4 @@ CSS:
 brand new dtstyle.css
 -- needs to look VERY different from what it is now. framework was taken from old assignment
 
-SQL needed:
-trigger for insert into order, subtract quantity from stock
 
