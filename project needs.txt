@@ -7,25 +7,23 @@ add order (orderchooseemployee, orderchoosecustomer, orderchooseproduct, placeor
 add customer
 add employee
 trigger for insert into order, subtract quantity from stock
-
-PAGES NEEDED:
-Home page (index.php)
--- link to all other view pages, every other page must link to their respective view page (eg edit customer links back to customer view
-                                                                                            and customer view links back to home)
 customer view
 -- view all customers & info
 -- button or link to edit page for each customer in a table
 -- button or link to add customer page
+employee view
+-- view all employees and info
+-- button or link to edit page for every employee
+-- button or link to add employee
+
+PAGES NEEDED:
+Home page (index.php)
+-- link to all other view pages, every other page must link to their respective view page (eg edit customer links back to customer view and customer view links back to home)
 
 update customer info
 -- this is edit page
 -- copy from style from editproduct, allow for only relevant info to be changed
 -- -- email, zip, phone
-
-employee view
--- view all employees and info
--- button or link to edit page for every employee
--- button or link to add employee
 
 update employee info
 -- update only relevant information (phone number, email
