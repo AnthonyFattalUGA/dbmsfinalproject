@@ -68,6 +68,7 @@ if(!empty($row1)) {
         <div class="flex">
             <aside class="left">
                 <h3 class="title"><a href="orderview.php">Order Home</a></h3>
+                <h3 class="title"><a href="index.php">Home Page</a></h3>
                 <ul class="nav">
                     <!----php-->
                 </ul> 
