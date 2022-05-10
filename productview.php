@@ -134,6 +134,7 @@ if (isset($_POST['categorydd'])) {
         <div class="flex">
             <aside class="left">
                 <h3 class="title"><a href="productview.php">Product Home</a></h3>
+                <h3 class="title"><a href="index.php">Home Page</a></h3>
                 <ul class="nav">
                     <?php //echo $show1; ?>
                 </ul>
