@@ -1,4 +1,10 @@
-pages so far:
+NEEDED:
+-Populate the database
+-link all view pages back to index.php
+-finish styling, make sure all pages fit well
+-testing
+
+COMPLETED:
 add product
 product home
 edit product
@@ -24,7 +30,6 @@ update employee info
 Home page (index.php)
 -- link to all other view pages, every other page must link to their respective view page (eg edit customer links back to customer view and customer view links back to home)
 
-PAGES NEEDED:
 order view
 -- views all relevant information for all orders, in order of most to least recent
 -- maybe a delete button 
@@ -32,5 +37,3 @@ order view
 CSS:
 brand new dtstyle.css
 -- needs to look VERY different from what it is now. framework was taken from old assignment
-
-
