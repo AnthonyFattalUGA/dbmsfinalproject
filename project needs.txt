@@ -3,6 +3,7 @@ NEEDED:
 -link all view pages back to index.php
 -finish styling, make sure all pages fit well
 -testing
+-delete unused files (dtstyle.css, style.css
 
 COMPLETED:
 add product
