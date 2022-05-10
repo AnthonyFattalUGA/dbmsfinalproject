@@ -1,12 +1,12 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/ 
     font-family: sans-serif;
   }
   
   body {
-    border: 3px groove grey;
+    /*border: 3px groove grey;*/
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;

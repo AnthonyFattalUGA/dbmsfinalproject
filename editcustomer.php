@@ -88,6 +88,7 @@ if (isset($_REQUEST['edit'])) { //add customer query
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Manager</title>
     <link rel="stylesheet" href="dtstyle.css">
+    <link rel="stylesheet" href="formstyle.css">
 </head>
 <body>
     <header>
