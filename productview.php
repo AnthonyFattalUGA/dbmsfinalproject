@@ -156,7 +156,7 @@ if (isset($_POST['categorydd'])) {
                         <option value="<?php echo $currentsupplier['sname']?>"><?php echo $currentsupplier['sname']?></option>
                     <?php endforeach; ?>
                 </select>
-                <input id="submit" name="submit" type="submit" value="Search">
+                <button id="submit" name="submit" type="submit" value="Search">Search</button>
             </aside>
         </form>
             <aside class="right">
