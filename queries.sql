@@ -38,7 +38,7 @@ SELECT *, suppliers.sname FROM `products`
 -- category list
 SELECT category FROM `products` GROUP BY category;
 
--- supplier name list
+-- supplier name list for only active suppliers
 SELECT suppliers.sname FROM `products` 
   inner join suppliers 
   where products.sid=suppliers.sid 
