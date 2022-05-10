@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 09, 2022 at 04:50 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Host: localhost
+-- Generation Time: May 10, 2022 at 04:30 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,7 +60,10 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`eid`, `ename`, `phone_number`, `email`) VALUES
-(1, 'Anthony Fattal', '4043843999', 'fattalanthony@gmail.com');
+(1, 'Anthony Fattal', '4043843999', 'fattalanthony@gmail.com'),
+(2, 'Dev Patel', '(678)-313-2200', 'devdp2001@gmail.com'),
+(3, 'Carter Gluck', '(678)-773-6578', 'ckg82383@uga.edu'),
+(4, 'Kel Timbrook', '(678)-324-5667', 'keltimbrook@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -122,7 +125,13 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`pid`, `pname`, `stock`, `price`, `category`, `sid`, `color`, `psize`) VALUES
 (1, 'sketchers', 70, '187.40', 'shoe', 1, 'blue', 'size 11'),
 (5, '2015 adidas yeezy boost 350', 9, '550.00', 'shoe', 3, 'pirate black', '13'),
-(6, 'tshirt', 11, '12.00', 'shirt', 4, 'blue', 'L');
+(6, 'tshirt', 11, '12.00', 'shirt', 4, 'blue', 'L'),
+(7, 'Nike Sportswear Max 90', 26, '45.00', 'tshirt', 2, 'blue', 'L'),
+(8, 'Sportswear Tech Fleece Utility Pants', 8, '120.00', 'pants', 2, 'grey', 'M'),
+(9, 'NMD_R1 PRIMEBLUE SHOES', 58, '150.00', 'shoe', 3, 'black', '9'),
+(10, 'ULTRABOOST 4.0 DNA SHOES', 35, '190.00', 'shoe', 3, 'white', '12'),
+(11, 'ADICOLOR ESSENTIALS TREFOIL HOODIE', 40, '55.00', 'hoodie', 3, 'black', 'L'),
+(12, 'Arch Fit Motley SD - Verlander', 15, '85.00', 'shoe', 1, 'brown', '10');
 
 -- --------------------------------------------------------
 
@@ -140,7 +149,7 @@ CREATE TABLE `suppliers` (
 --
 
 INSERT INTO `suppliers` (`sid`, `sname`) VALUES
-(1, 'sktechers'),
+(1, 'skechers'),
 (2, 'NIKE'),
 (3, 'adidas'),
 (4, 'erm');
@@ -193,7 +202,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -205,13 +214,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
