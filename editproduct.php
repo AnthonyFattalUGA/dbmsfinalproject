@@ -134,8 +134,8 @@ if (isset($_REQUEST['edit'])) { //add product query
                         <th></th>
                         <th>Product ID</th>
                         <th>Name</th>
-                        <th>Stock</th>
-                        <th>Price</th>
+                        <th>Stock(warehouse)</th>
+                        <th>Price($USD)</th>
                         <th>Category</th>
                         <th>Supplier</th>
                         <th>Color</th>
